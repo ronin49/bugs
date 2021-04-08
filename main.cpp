@@ -10,6 +10,7 @@ int main() {
 	sf::VertexArray bugs(sf::Points,PARTICLES);
 	for(int i = 0; i < PARTICLES; i++) {
 		bugs[i].position = sf::Vector2f(rand()%200,rand()%200);
+		bugs[i].color=sf::Color(0,0,0);
 	}
     while (window.isOpen())
     {
@@ -17,7 +18,7 @@ int main() {
 		
 		for(int i = 0; i < PARTICLES; i++) {
 			if(sqrt(pow(mouse.x-bugs[i].position.x,2)+pow(mouse.y-bugs[i].position.y,2))<30) {
-				bugs[i].color=sf::Color(158, 218, 3);
+				//bugs[i].color=sf::Color(158, 218, 3);
 				if(mouse.x>bugs[i].position.x) {
 					bugs[i].position.x-=PARTICLE_PUSH;
 					if(bugs[i].position.x < 0)
@@ -39,7 +40,7 @@ int main() {
 						bugs[i].position.y = window.getSize().y-1;
 				}
 			} else {
-				bugs[i].color=sf::Color(0,0,0);
+				//bugs[i].color=sf::Color(0,0,0);
 				if(rand()%2) {
 					bugs[i].position.x-=PARTICLE_SPEED;
 					if(bugs[i].position.x < 0)
